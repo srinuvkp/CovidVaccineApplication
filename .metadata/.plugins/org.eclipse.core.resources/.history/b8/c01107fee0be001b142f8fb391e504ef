@@ -1,0 +1,17 @@
+package com.covid.india.VaccineRepository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.covid.india.VaccineModel.Vaccine;
+
+@Repository
+public interface VaccineRepository extends JpaRepository<Vaccine, Integer> {
+
+	//List<Vaccine> findOne(int vaccineId);
+
+	List<Vaccine> findByVaccineId(int vaccineId);
+
+}

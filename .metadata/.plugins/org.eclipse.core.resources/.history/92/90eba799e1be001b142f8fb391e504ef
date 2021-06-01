@@ -1,0 +1,60 @@
+package com.covid.india.VaccineService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.stereotype.Service;
+
+import com.covid.india.VaccineModel.Vaccine;
+import com.covid.india.VaccineRepository.VaccineRepository;
+
+@Service
+public class VaccineService {
+	@Autowired
+	private VaccineRepository vaccineRepository;
+   
+	public void saveData(Vaccine vaccine) {
+		// TODO Auto-generated method stub
+		
+		vaccineRepository.save(vaccine);
+	}
+
+	public void deleteVaccine(Vaccine vaccineId) {
+		// TODO Auto-generated method stub
+		vaccineRepository.delete(vaccineId);
+	}
+
+	public List<Vaccine> findAllVaccineDetails() {
+		return vaccineRepository.findAll();
+		
+	}
+	public void updateVaccine(Vaccine vaccine) {
+		// TODO Auto-generated method stub
+		vaccineRepository.save(vaccine);
+		
+	}
+
+	public List<Vaccine> vaccineDetailsById(int vaccineId) {
+		List<Vaccine> vaccine= vaccineRepository.findByVaccineId(vaccineId);
+		// TODO Auto-generated method stub
+return vaccine;
+	
+	}
+
+	public List<Vaccine> vaccineDetailsByName(String vaccineName) {
+		// TODO Auto-generated method stub
+		List<Vaccine> vaccine= vaccineRepository.findByVaccineId(vaccineName);
+		return vaccine;
+	}
+
+	public List<Vaccine> vaccineDetailsByAdharNumber(int adharNumber) {
+		List<Vaccine> vaccine= vaccineRepository.findByVaccineId(adharNumber);
+		return vaccine;
+	}
+
+	
+
+}
+
+
